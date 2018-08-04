@@ -16,6 +16,8 @@ import { SignUpPage } from '../pages/sign-up/sign-up';
 import { SchedulePage } from '../pages/schedule/schedule';
 import { AttendancePage } from '../pages/attendance/attendance';
 import { AnnouncementModalPage } from '../pages/announcement-modal/announcement-modal';
+import { AutomateMessagePage } from '../pages/automate-message/automate-message';
+import { GroupListPage } from '../pages/group-list/group-list';
 import { ProfileModalPage } from '../pages/profile-modal/profile-modal';
 import { EventModalPage } from '../pages/event-modal/event-modal';
 
@@ -59,6 +61,9 @@ export const firebaseConfig = {
     StudyPage,
     SignUpPage,
     SchedulePage,
+    AnnouncementModalPage,
+    AutomateMessagePage,
+    GroupListPage,
     AttendancePage,
     AnnouncementModalPage,
 		ProfileModalPage,
@@ -86,6 +91,8 @@ export const firebaseConfig = {
     SignUpPage,
     SchedulePage,
     AnnouncementModalPage,
+    AutomateMessagePage,
+    GroupListPage,
 		ProfileModalPage,
     AttendancePage,
     EventModalPage

@@ -4,6 +4,7 @@ import { IonicPage, NavController, ModalController, NavParams } from 'ionic-angu
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { Post } from '../../models/Post';
+import { User } from '../../models/User';
 
 import { DateProvider } from '../../providers/date/date';
 import { PostsProvider } from '../../providers/posts/posts';

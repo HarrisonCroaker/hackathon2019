@@ -19,11 +19,12 @@
 				<ion-avatar item-start>
 					<img src={{ann.imgLink}}/>
 				</ion-avatar>
-				<h6>{{ann.title}}</h6>
+				<h6>{{ann.title}}</h6>,<p class="author">{{ann.creatorName}}</p>
 			</ion-item>
-			<p>By {{ann.creatorName}}</p>
+
+
+			<p class="description" style="padding-bottom:10px!important">{{ann.content}}</p>
 			<p class="timestamp">{{ann.timestamp | date:'MMM d, y, h:mm a'}}</p>
-			<p style="padding-bottom:10px!important">{{ann.content}}</p>
 		</ion-card>
 	</ion-list>
 </ion-content>
