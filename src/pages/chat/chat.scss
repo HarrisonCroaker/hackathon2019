@@ -25,7 +25,7 @@ page-chat {
         color:#aeaeae;
       }
       p{
-        word-break: break-all !important;
+        word-break: keep-all !important;
         white-space: initial;
         margin-top: 5px;
       }
@@ -73,7 +73,7 @@ page-chat {
   }
 
   .scroll-content{
-    margin-bottom: 125px !important;
+    margin-bottom: 98px !important;
   }
 
   ion-footer{
@@ -85,7 +85,6 @@ page-chat {
       border:1px solid #dbdbdb;
       background: #fcf9f9;
       width:90%;
-
     }
     ion-icon{
       position: absolute;

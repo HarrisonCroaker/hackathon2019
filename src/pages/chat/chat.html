@@ -1,6 +1,11 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{id}}</ion-title>
+    <ion-title *ngIf="group" (click)="openGroup()">{{group.name}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openAutoModal()">
+        <ion-icon name="open"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -12,7 +17,7 @@
           'thirdContainer':msg.user.id != currentUser.id
         }">
         <div class="msgBox">
-          <h1>{{msg.user?.sNumber}},</h1><h2>{{msg.timestamp | date:'shortTime'}}</h2>
+          <h1>{{msg.user?.name}},</h1><h2>{{msg.timestamp | date:'shortTime'}}</h2>
           <p>
             {{msg.message}}
           </p>
@@ -26,12 +31,6 @@
 
 <ion-footer>
   <ion-toolbar>
-    <!-- <ion-input type="text" placeholder="Type a message" [(ngModel)]="inputMessage" name="message"></ion-input>
-    <button (click)="sendMessage()" ion-button icon-end block>
-        Send
-        <ion-icon name="arrow"></ion-icon>
-    </button> -->
     <input type="text" placeholder="Message..." [(ngModel)]="inputMessage"/><ion-icon name="send" (click)="sendMessage()"></ion-icon>
-
   </ion-toolbar>
 </ion-footer>

@@ -1,5 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
+import { AutomateMessagePage } from '../automate-message/automate-message';
+import { GroupListPage } from '../group-list/group-list';
+
 import { User } from '../../models/User';
 
 import { Message } from "../../models/Message";
@@ -18,10 +22,10 @@ export class ChatPage {
   id: any;
   messages: Message[];
   inputMessage: string;
-
   currentUser: User;
+  group:any;
 
-  constructor(public navCtrl: NavController, public userService: UserProvider, private messagesService: MessagesProvider, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public userService: UserProvider, private messagesService: MessagesProvider, public navParams: NavParams,public modalCtrl: ModalController) {
 
   }
 
@@ -30,6 +34,8 @@ export class ChatPage {
     this.currentUser = this.userService.getCurreUserData();
     console.log('ionViewDidLoad ChatPage');
     this.id = this.navParams.get('id');
+    this.group = this.navParams.data;
+    console.log(this.group)
     this.messagesService.getMessages(this.id).subscribe(messages => {
       this.messages = messages;
       this.content.resize();
@@ -40,22 +46,46 @@ export class ChatPage {
 
   sendMessage() {
     console.log("Sending...");
-    let message: Message = {
-      timestamp: (new Date).getTime().toString(),
-      type: "general",
-      message: this.inputMessage,
-      user: this.currentUser
-    };
-    this.messagesService.sendMessage(this.id, message);
-    this.inputMessage = '';
+    if(this.inputMessage){
+      let message: Message = {
+        timestamp: (new Date).getTime().toString(),
+        type: "general",
+        message: this.inputMessage,
+        user: this.currentUser
+      };
+      this.messagesService.sendMessage(this.id, message);
+      this.inputMessage = '';
+    }
+
   }
 
   scrollToBottom() {
       setTimeout(() => {
         if (this.content.scrollToBottom) {
-          this.content.scrollToBottom();
+          try{
+            this.content.scrollToBottom();
+          }catch(e){
+            console.log(e)
+          }
+
         }
       }, 200)
+  }
+
+  openAutoModal(){
+    const modal = this.modalCtrl.create(AutomateMessagePage);
+    modal.onDidDismiss(data => {
+      if(data!=null){
+        this.inputMessage = data.msg
+        this.sendMessage()
+        console.log(data);
+      }
+    });
+    modal.present();
+  }
+
+  openGroup(){
+    this.navCtrl.push(GroupListPage,this.group);
   }
 
   goBack() {

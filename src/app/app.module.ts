@@ -15,6 +15,8 @@ import { StudyPage } from '../pages/study/study';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { SchedulePage } from '../pages/schedule/schedule';
 import { AnnouncementModalPage } from '../pages/announcement-modal/announcement-modal';
+import { AutomateMessagePage } from '../pages/automate-message/automate-message';
+import { GroupListPage } from '../pages/group-list/group-list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -56,7 +58,9 @@ export const firebaseConfig = {
     StudyPage,
     SignUpPage,
     SchedulePage,
-    AnnouncementModalPage
+    AnnouncementModalPage,
+    AutomateMessagePage,
+    GroupListPage
   ],
   imports: [
     BrowserModule,
@@ -79,7 +83,9 @@ export const firebaseConfig = {
     StudyPage,
     SignUpPage,
     SchedulePage,
-    AnnouncementModalPage
+    AnnouncementModalPage,
+    AutomateMessagePage,
+    GroupListPage
   ],
   providers: [
     StatusBar,
