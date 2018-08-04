@@ -26,7 +26,6 @@ import { UserProvider } from '../providers/user/user';
 import { ScheduleProvider } from '../providers/schedule/schedule';
 import { EventProvider } from '../providers/event/event';
 
-
 // Firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
