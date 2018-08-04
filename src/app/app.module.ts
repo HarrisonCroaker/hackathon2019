@@ -15,6 +15,7 @@ import { StudyPage } from '../pages/study/study';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { SchedulePage } from '../pages/schedule/schedule';
 import { AttendancePage } from '../pages/attendance/attendance';
+import { AnnouncementModalPage } from '../pages/announcement-modal/announcement-modal';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -33,6 +34,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { ReactiveFormsModule} from '@angular/forms';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC9x_GJ3kJG2Kp-Fo3rlnK0gcQZLN2DzQI",
@@ -54,7 +57,8 @@ export const firebaseConfig = {
     StudyPage,
     SignUpPage,
     SchedulePage,
-    AttendancePage
+    AttendancePage,
+    AnnouncementModalPage
   ],
   imports: [
     BrowserModule,
@@ -63,8 +67,8 @@ export const firebaseConfig = {
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    HttpClientModule
-
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -77,7 +81,8 @@ export const firebaseConfig = {
     StudyPage,
     SignUpPage,
     SchedulePage,
-    AttendancePage
+    AttendancePage,
+    AnnouncementModalPage
   ],
   providers: [
     StatusBar,
