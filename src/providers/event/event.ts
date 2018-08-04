@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import { AngularFirestore } from 'angularfire2/firestore';
 /*
   Generated class for the EventProvider provider.
 
@@ -10,8 +11,12 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class EventProvider {
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private firestore: AngularFirestore) {
     console.log('Hello EventProvider Provider');
+  }
+
+	getEvents(){
+		return this.firestore.collection('Events', ref => ref.orderBy('respondedTo', 'desc').orderBy('timestamp', 'desc')).snapshotChanges();
   }
 
 }
