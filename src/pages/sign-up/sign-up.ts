@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Subject } from 'rxjs/Rx';
 
 import { TabsPage } from '../tabs/tabs';
 
@@ -28,6 +29,9 @@ export class SignUpPage {
   sNumber:number;
   email:string;
   password:string;
+  private unSub: Subject<any> = new Subject();
+  private unSub2: Subject<any> = new Subject();
+
 
   loading: boolean = false;
 
@@ -54,16 +58,28 @@ export class SignUpPage {
           }
           console.log(newUser)
 
-          this.authService.authInit()
+          this.authService.authInit().takeUntil(this.unSub).subscribe(auth=>{
+            if(auth){
+              // Add the user to the database, Initialize the user data module, Navigate to tabs
+              this.userService.addUser(newUser).then(()=>{
+                this.userService.initializeUser(auth.uid).takeUntil(this.unSub2).subscribe(user=>{
+                  this.navCtrl.push(TabsPage)
+                  this.unSub2.next();
+                  this.unSub2.complete();
+                })
+              }).catch(err=>{
+                this.loading = false;
+                console.log(err)
+              })
 
-          // Add the user to the database, Initialize the user data module, Navigate to tabs
-          this.userService.addUser(newUser).then(()=>{
-            this.navCtrl.push(TabsPage)
-            this.userService.initializeUser(newUser.id);
-          }).catch(err=>{
-            this.loading = false;
-            console.log(err)
+            }
+            else{
+              this.unSub.next()
+              this.unSub.complete()
+            }
           })
+
+
         }
       }).catch(err=>{
         this.loading = false;
