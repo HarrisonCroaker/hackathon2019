@@ -14,6 +14,7 @@ import { LoginPage } from '../pages/login/login';
 import { StudyPage } from '../pages/study/study';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { SchedulePage } from '../pages/schedule/schedule';
+import { AnnouncementModalPage } from '../pages/announcement-modal/announcement-modal';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -25,7 +26,6 @@ import { AnnouncementsProvider } from '../providers/announcements/announcements'
 import { DateProvider } from '../providers/date/date';
 import { PostsProvider } from '../providers/posts/posts';
 import { UserProvider } from '../providers/user/user';
-import { ScheduleProvider } from '../providers/schedule/schedule';
 import { EventProvider } from '../providers/event/event';
 
 // Firebase
@@ -33,6 +33,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { ReactiveFormsModule} from '@angular/forms';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC9x_GJ3kJG2Kp-Fo3rlnK0gcQZLN2DzQI",
@@ -53,7 +55,8 @@ export const firebaseConfig = {
     LoginPage,
     StudyPage,
     SignUpPage,
-    SchedulePage
+    SchedulePage,
+    AnnouncementModalPage
   ],
   imports: [
     BrowserModule,
@@ -62,8 +65,8 @@ export const firebaseConfig = {
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    HttpClientModule
-
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -75,7 +78,8 @@ export const firebaseConfig = {
     LoginPage,
     StudyPage,
     SignUpPage,
-    SchedulePage
+    SchedulePage,
+    AnnouncementModalPage
   ],
   providers: [
     StatusBar,
@@ -87,7 +91,6 @@ export const firebaseConfig = {
     DateProvider,
     PostsProvider,
     UserProvider,
-    ScheduleProvider,
     EventProvider
   ]
 })
