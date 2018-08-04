@@ -6,6 +6,8 @@ import { Event } from '../../models/Event';
 import { DateProvider } from '../../providers/date/date';
 import { EventProvider } from '../../providers/event/event';
 import { UserProvider } from '../../providers/user/user';
+
+import { AttendancePage } from '../attendance/attendance';
 /**
  * Generated class for the SchedulePage page.
  *
@@ -21,7 +23,8 @@ import { UserProvider } from '../../providers/user/user';
 export class SchedulePage {
 
 	pageTitle: string = 'Schedule';
-	events: Event[];
+	events: any;
+  user: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
 		private dateService: DateProvider,
@@ -33,7 +36,8 @@ export class SchedulePage {
   }
 
 	ionViewWillEnter(){
-		this.eventService.getEvents().subscribe(events => {
+    this.user = this.userService.getCurreUserData();
+		this.eventService.getEvents(this.user.sNumber.toString()).subscribe(events => {
 			this.events = events.map(a => {
 				const data = a.payload.doc.data() as Event;
 				data.timestamp = this.dateService.toDateTime(data.timestamp)
@@ -44,12 +48,23 @@ export class SchedulePage {
 		});
 	}
 
-	respondYes(){
-		
+	respondYes(event){
+    console.log(event.id + this.user.sNumber.toString() + true);
+    this.eventService.postEvent(event.id, this.user.sNumber.toString(), true);
 	}
 
-	respondNo(){
-
+	respondNo(event){
+    console.log(event.id + this.user.sNumber.toString() + true);
+    this.eventService.postEvent(event.id, this.user.sNumber.toString(), false);
 	}
+
+  addMeeting() {
+
+  }
+
+  viewattendance(event) {
+    console.log(event);
+    this.navCtrl.push(AttendancePage, {'event': event});
+  }
 
 }

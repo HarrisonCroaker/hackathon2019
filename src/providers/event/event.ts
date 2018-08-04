@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { AngularFirestore } from 'angularfire2/firestore';
+import 'rxjs/add/operator/first';
 /*
   Generated class for the EventProvider provider.
 
@@ -10,13 +11,35 @@ import { AngularFirestore } from 'angularfire2/firestore';
 */
 @Injectable()
 export class EventProvider {
-
+  mentor: any = "5084150";
   constructor(public http: HttpClient, private firestore: AngularFirestore) {
     console.log('Hello EventProvider Provider');
   }
 
-	getEvents(){
-		return this.firestore.collection('Events', ref => ref.orderBy('respondedTo', 'desc').orderBy('timestamp', 'desc')).snapshotChanges();
+	getEvents(id: string){
+    this.firestore.collection('Mappings', ref => ref.where(`mentees.${id}`, '==', true)).valueChanges().subscribe((group) => {
+      console.log(group);
+    });
+		return this.firestore.collection('Events', ref => ref.where(`authorId`, '==', this.mentor)).snapshotChanges();
+  }
+
+  postEvent(eventId:string, sNumber:string, resp:boolean) {
+    this.firestore.collection('Events').doc(eventId).collection('Attendance', ref => ref.where(`id`, '==', sNumber)).snapshotChanges().first()
+      .subscribe(data => {
+        console.log(data);
+        if (data.length) {
+          console.log(data[0].payload.doc.data().response + "  " + resp); //.update({'response': resp});
+          if (data[0].payload.doc.data().response != resp) {
+            this.firestore.collection('Events').doc(eventId).collection('Attendance').doc(data[0].payload.doc.id).set({'id': sNumber, 'response': resp});
+          }
+        } else {
+          this.firestore.collection('Events').doc(eventId).collection('Attendance').add({'id': sNumber, 'response': resp});
+        }
+      });
+  }
+
+  getAttendance(eventId:string) {
+    return this.firestore.collection('Events').doc(eventId).collection('Attendance').valueChanges();
   }
 
 }

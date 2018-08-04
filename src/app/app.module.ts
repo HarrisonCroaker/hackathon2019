@@ -14,6 +14,7 @@ import { LoginPage } from '../pages/login/login';
 import { StudyPage } from '../pages/study/study';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { SchedulePage } from '../pages/schedule/schedule';
+import { AttendancePage } from '../pages/attendance/attendance';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -52,7 +53,8 @@ export const firebaseConfig = {
     LoginPage,
     StudyPage,
     SignUpPage,
-    SchedulePage
+    SchedulePage,
+    AttendancePage
   ],
   imports: [
     BrowserModule,
@@ -74,7 +76,8 @@ export const firebaseConfig = {
     LoginPage,
     StudyPage,
     SignUpPage,
-    SchedulePage
+    SchedulePage,
+    AttendancePage
   ],
   providers: [
     StatusBar,
