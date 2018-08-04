@@ -3,11 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+// Pages
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { MessagesPage } from '../pages/messages/messages';
+import { ChatPage } from '../pages/chat/chat';
+import { LoginPage } from '../pages/login/login';
+import { StudyPage } from '../pages/study/study';
+import { SignUpPage } from '../pages/sign-up/sign-up';
+import { SchedulePage } from '../pages/schedule/schedule';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+// Services
 import { MessagesProvider } from '../providers/messages/messages';
 import { AuthProvider } from '../providers/auth/auth';
 import { AnnouncementsProvider } from '../providers/announcements/announcements';
@@ -17,21 +26,51 @@ import { UserProvider } from '../providers/user/user';
 import { ScheduleProvider } from '../providers/schedule/schedule';
 import { EventProvider } from '../providers/event/event';
 
+
+// Firebase
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyC9x_GJ3kJG2Kp-Fo3rlnK0gcQZLN2DzQI",
+  authDomain: "hackathon2018-ba671.firebaseapp.com",
+  databaseURL: "https://hackathon2018-ba671.firebaseio.com",
+  projectId: "hackathon2018-ba671",
+  storageBucket: "hackathon2018-ba671.appspot.com",
+  messagingSenderId: "1022766297163"
+}
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    TabsPage
+    TabsPage,
+    MessagesPage,
+    ChatPage,
+    LoginPage,
+    StudyPage,
+    SignUpPage,
+    SchedulePage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    TabsPage
+    TabsPage,
+    MessagesPage,
+    ChatPage,
+    LoginPage,
+    StudyPage,
+    SignUpPage,
+    SchedulePage
   ],
   providers: [
     StatusBar,

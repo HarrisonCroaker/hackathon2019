@@ -14,5 +14,17 @@
 
 
 <ion-content padding>
+  <ion-icon name="bulb"></ion-icon>
+  <ion-list class="inputList">
+    <ion-item>
+      <ion-input class="inputField" type="text" placeholder="Email" [(ngModel)]="email"></ion-input>
+    </ion-item>
 
+    <ion-item>
+      <ion-input class="inputField" type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button class="loginBtn" (click)="login()">Login</button>
+  <button class="signUpBtn" (click)="gotToSignUp()">Sign Up</button>
 </ion-content>
