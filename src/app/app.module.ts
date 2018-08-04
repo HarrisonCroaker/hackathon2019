@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { NavController } from 'ionic-angular';
 
 // Pages
 import { HomePage } from '../pages/home/home';
@@ -62,6 +63,7 @@ export const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     HttpClientModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [

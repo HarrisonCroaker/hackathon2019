@@ -31,6 +31,7 @@ export class UserProvider {
       console.log(userData)
       this.userData = userData
     })
+    return this.afs.doc(`Users/${uid}`).valueChanges()
   }
 
   setUserData(user: User){
