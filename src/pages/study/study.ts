@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, ModalController, NavParams } from 'ionic-angular';
 
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -8,6 +8,8 @@ import { Post } from '../../models/Post';
 import { DateProvider } from '../../providers/date/date';
 import { PostsProvider } from '../../providers/posts/posts';
 import { UserProvider } from '../../providers/user/user';
+
+import { ProfileModalPage } from '../profile-modal/profile-modal';
 
 @IonicPage()
 @Component({
@@ -23,6 +25,7 @@ export class StudyPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
 		private dateService: DateProvider,
+		private modalCtrl: ModalController,
 		private postsService: PostsProvider,
 		private userService: UserProvider,
 		private formBuilder: FormBuilder) {
@@ -67,6 +70,12 @@ export class StudyPage {
 			}
 			console.log(data.timestamp)
 			this.postsService.insertPost(data)
+	}
+
+	profileScreen(){
+		const profModal = this.modalCtrl.create(ProfileModalPage)
+
+		profModal.present()
 	}
 
 }
