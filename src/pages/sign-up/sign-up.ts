@@ -67,6 +67,7 @@ export class SignUpPage {
                   this.unSub2.next();
                   this.unSub2.complete();
                 })
+                
               }).catch(err=>{
                 this.loading = false;
                 console.log(err)
