@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import { AngularFirestore } from 'angularfire2/firestore';
+
 /*
   Generated class for the AnnouncementsProvider provider.
 
@@ -10,8 +12,12 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AnnouncementsProvider {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello AnnouncementsProvider Provider');
-  }
+	constructor(public http: HttpClient, private firestore: AngularFirestore) {
+		console.log('Hello AnnouncementsProvider Provider');
+	}
+
+	getAnnouncements(){
+		return this.firestore.collection('Announcements', ref => ref.orderBy('timestamp', 'desc')).snapshotChanges();
+  	}
 
 }
