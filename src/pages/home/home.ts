@@ -9,8 +9,7 @@ import { UserProvider } from '../../providers/user/user';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html',
-  styleUrls: ['home.scss']
+  templateUrl: 'home.html'
 })
 export class HomePage {
 	announcements: Announcement[]
@@ -29,6 +28,10 @@ export class HomePage {
 				return { id, ...data };
 			})
 		});
+	}
+
+	addAnnouncement(){
+
 	}
 
 }

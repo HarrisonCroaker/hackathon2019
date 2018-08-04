@@ -1,14 +1,22 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+	<ion-navbar color="griffith" class="headerClass">
+		<ion-title class="headerText">{{pageTitle}}</ion-title>
+		<ion-buttons end class="btnClass">
+			<button ion-button *ngIf="1 == 1" icon-only (click)="addAnnouncement()">
+				<ion-icon name="add-circle-outline"></ion-icon>
+			</button>
+			<button ion-button icon-only>
+				<ion-icon name="contact"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content no-padding>
 	<ion-list class="offsetClass">
 		<ion-card class="announcement" *ngFor="let ann of announcements;">
 			<ion-item>
-				<ion-avatar slot="start">
+				<ion-avatar item-start>
 					<img src={{ann.imgLink}}/>
 				</ion-avatar>
 				<h6>{{ann.title}}</h6>

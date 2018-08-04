@@ -39,10 +39,10 @@ export class MessagesPage {
         });
     });
   }
-
-  messageChanged(event: any) {
+	
+	messageChanged(event: any) {
     this.currentSegment = event.value;
-    console.log('Segment changed = > ', event.value);
+    console.log('Segment changed', event.value);
   }
 
 }

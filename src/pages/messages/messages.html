@@ -1,12 +1,16 @@
-
 <ion-header>
-  <ion-navbar>
-    <ion-title>messages</ion-title>
-  </ion-navbar>
+		<ion-navbar color="griffith" class="headerClass">
+			<ion-title class="headerText">{{pageTitle}}</ion-title>
+			<ion-buttons end class="btnClass">
+	      <button ion-button icon-only>
+					<ion-icon name="contact"></ion-icon>
+				</button>
+	    </ion-buttons>
+		</ion-navbar>
 </ion-header>
 
 <ion-content no-padding>
-  <ion-segment (ionChange)="messageChanged($event)" color="danger" class="segment">
+  <ion-segment [(ngModel)]="currentSegment" (ionChange)="messageChanged($event)" color="griffith" class="segment">
     <ion-segment-button value="group" checked>
       Groups
     </ion-segment-button>

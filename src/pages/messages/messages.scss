@@ -1,3 +1,33 @@
 page-messages {
+	.headerClass{
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+	text-align: center;
+		.headerText{
+			color: white;
+			text-align: center;
+			font-size: 25px;
+			font-family: 'Open Sans', sans-serif;
+		}
+	}
+
+	.segment{
+		padding-top: 2vh;
+		padding-left: 4vw;
+		padding-right: 4vw;
+		margin-bottom: 2vh;
+	}
+
+	.messageBox{
+		margin-top: 0vh;
+		padding-left: 4vw;
+		padding-right: 4vw;
+		padding-top: 0vh;
+		margin-bottom: 2vh;
+	}
+
+	.btnClass{
+		margin-right: 2vw;
+	}
 
 }
