@@ -2,7 +2,7 @@
 		<ion-navbar color="griffith" class="headerClass">
 			<ion-title class="headerText">{{pageTitle}}</ion-title>
 			<ion-buttons end class="btnClass">
-	      <button ion-button icon-only>
+	      <button ion-button icon-only (click)="profileScreen()">
 					<ion-icon name="contact"></ion-icon>
 				</button>
 	    </ion-buttons>
@@ -39,7 +39,15 @@
 		</ion-list>
   </ion-list>
   <ion-list *ngIf="currentSegment == 'create'">
-    creating
+		<form [formGroup]="postGroup" class="inputFields">
+			<h4>Title</h4>
+			<ion-input type="text" [formControl]="postGroup.controls['title']" placeholder="Post Title" ></ion-input>
+			<h4>Description</h4>
+			<ion-textarea type="text" [formControl]="postGroup.controls['content']" placeholder="Post Description"></ion-textarea>
+		</form>
+		<button ion-button color="secondary" class="submitBtn" (click)="addPost()">
+			<ion-icon name="checkmark"></ion-icon>
+		</button>
   </ion-list>
 
 </ion-content>

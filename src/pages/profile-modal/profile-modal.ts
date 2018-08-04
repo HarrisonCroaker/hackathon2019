@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, ViewController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the ProfileModalPage page.
@@ -14,12 +14,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'profile-modal.html',
 })
 export class ProfileModalPage {
+	pageTitle: string = 'Profile';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private viewCtrl: ViewController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfileModalPage');
   }
+
+	goBack(){
+		this.viewCtrl.dismiss({});
+	}
 
 }
