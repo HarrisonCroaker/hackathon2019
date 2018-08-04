@@ -23,6 +23,7 @@ import { User } from '../../models/User';
   templateUrl: 'sign-up.html',
 })
 export class SignUpPage {
+	pageTitle = 'Sign Up';
 
   newUser:User;
   name:string;
