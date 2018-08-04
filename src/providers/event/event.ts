@@ -17,8 +17,8 @@ export class EventProvider {
   }
 
 	getEvents(id: string){
-    this.firestore.collection('Mappings', ref => ref.where(`mentees.${id}`, '==', true)).valueChanges().subscribe((group) => {
-      console.log(group);
+    this.firestore.collection('Mappings', ref => ref.where(`mentees.${id}`, '==', true)).valueChanges().first().subscribe((group) => {
+      this.mentor = group[0]['mentor'];
     });
 		return this.firestore.collection('Events', ref => ref.where(`authorId`, '==', this.mentor)).snapshotChanges();
   }

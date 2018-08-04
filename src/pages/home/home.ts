@@ -28,7 +28,7 @@ export class HomePage {
 			}
 
 	ionViewWillEnter(){
-		this.announceService.getAnnouncements().subscribe(anns => {
+		this.announceService.getAnnouncements(this.user.sNumber.toString()).subscribe(anns => {
 			this.announcements = anns.map(a => {
 				const data = a.payload.doc.data() as Announcement;
 				data.timestamp = this.dateService.toDateTime(data.timestamp)
@@ -47,8 +47,8 @@ export class HomePage {
 			}
 			data = {
 				imgLink: "https://i.kym-cdn.com/photos/images/original/001/316/888/f81.jpeg",
-				creatorName: "Joshua Nicholl",
-				creatorId: "5088907",
+				creatorName: this.user.sNumber.toString(),
+				creatorId: this.user.sNumber.toString(),
 				timestamp: (new Date()).getTime(),
 				...data
 			}

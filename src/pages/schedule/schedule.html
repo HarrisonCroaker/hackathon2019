@@ -25,7 +25,7 @@
 		<p style="padding-bottom:10px!important">{{event.eventTime}}</p>
 		<p style="padding-bottom:10px!important">{{event.content}}</p>
 		<!-- <ion-buttons> -->
-		<div class="menteeview" *ngIf="user.type == 'mentor'">
+		<div class="menteeview">
 			<button color="secondary" class="respondYes" (click)="respondYes(event)">
 				<ion-icon name="checkmark"></ion-icon>
 			</button>
@@ -33,7 +33,7 @@
 				<ion-icon name="close"></ion-icon>
 			</button>
 		</div>
-		<div class="mentorview" *ngIf="user.type == 'mentor'">
+		<div class="mentorview">
 			<button color="secondary" class="mentorView" (click)="viewattendance(event)">
 				View attendance
 			</button>
