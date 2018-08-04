@@ -20,12 +20,12 @@
   </ion-segment>
 
   <ion-list *ngIf="currentSegment == 'group'">
-    <ion-item *ngFor="let group of groupCollection" class="messageBox">
+    <ion-item *ngFor="let group of groupCollection" (click)="messageClick(group)" class="messageBox">
       <ion-label>{{ group.name }}</ion-label>
     </ion-item>
   </ion-list>
   <ion-list *ngIf="currentSegment == 'dm'">
-    <ion-item *ngFor="let dm of dmCollection" class="messageBox">
+    <ion-item *ngFor="let dm of dmCollection" (click)="messageClick(dm)"  class="messageBox">
       <ion-label>{{ dm.name }}</ion-label>
     </ion-item>
   </ion-list>
