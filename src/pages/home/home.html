@@ -5,5 +5,17 @@
 </ion-header>
 
 <ion-content padding>
-  Fuck off.
+	<ion-list class="offsetClass">
+		<ion-card class="announcement" *ngFor="let ann of announcements;">
+			<ion-item>
+				<ion-avatar slot="start">
+					<img src={{ann.imgLink}}/>
+				</ion-avatar>
+				<h6>{{ann.title}}</h6>
+			</ion-item>
+			<p>By {{ann.creatorName}}</p>
+			<p class="timestamp">{{ann.timestamp}}</p>
+			<p style="padding-bottom:10px!important">{{ann.content}}</p>
+		</ion-card>
+	</ion-list>
 </ion-content>
