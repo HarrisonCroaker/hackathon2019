@@ -19,6 +19,8 @@ export class HomePage {
 	announcements: Announcement[]
 	pageTitle: string = 'Announcements';
 	user: User;
+
+	cardClass: string = 'regular';
 	constructor(private navCtrl: NavController,
 			private modalCtrl: ModalController,
 			private dateService: DateProvider,
@@ -31,7 +33,11 @@ export class HomePage {
 		this.announceService.getAnnouncements(this.user.sNumber.toString()).subscribe(anns => {
 			this.announcements = anns.map(a => {
 				const data = a.payload.doc.data() as Announcement;
-				data.timestamp = data.timestamp
+				if(data.important){
+					this.cardClass = 'important';
+				} else {
+					this.cardClass = 'regular';
+				}
 				const id = a.payload.doc.id;
 				return { id, ...data };
 			})
