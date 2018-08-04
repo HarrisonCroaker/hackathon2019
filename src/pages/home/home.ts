@@ -28,10 +28,10 @@ export class HomePage {
 			}
 
 	ionViewWillEnter(){
-		this.announceService.getAnnouncements().subscribe(anns => {
+		this.announceService.getAnnouncements(this.user.sNumber.toString()).subscribe(anns => {
 			this.announcements = anns.map(a => {
 				const data = a.payload.doc.data() as Announcement;
-				data.timestamp = this.dateService.toDateTime(data.timestamp)
+				data.timestamp = data.timestamp
 				const id = a.payload.doc.id;
 				return { id, ...data };
 			})
@@ -42,14 +42,14 @@ export class HomePage {
 		const annModal = this.modalCtrl.create(AnnouncementModalPage)
 		annModal.onDidDismiss(data => {
 			console.log(data)
-			if(data == {}) {
+			if(!data) {
 				return;
 			}
 			data = {
 				imgLink: "https://i.kym-cdn.com/photos/images/original/001/316/888/f81.jpeg",
-				creatorName: "Joshua Nicholl",
-				creatorId: "5088907",
-				timestamp: (new Date()).getTime(),
+				creatorName: this.user.name,
+				creatorId: this.user.sNumber.toString(),
+				timestamp: Math.round((new Date()).getTime()/1000),
 				...data
 			}
 			console.log(data.timestamp)

@@ -19,8 +19,8 @@ export class PostsProvider {
 		return this.firestore.collection('Posts', ref => ref.orderBy('timestamp', 'desc')).snapshotChanges();
   }
 
-	insertPost(newPost){
-		return this.firestore.collection('Posts').add(newPost)
+	insertPost(newPost: any){
+		this.firestore.collection('Posts').add(newPost)
 	}
 
 }
