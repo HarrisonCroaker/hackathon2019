@@ -28,7 +28,7 @@ export class HomePage {
 			}
 
 	ionViewWillEnter(){
-		this.announceService.getAnnouncements().subscribe(anns => {
+		this.announceService.getAnnouncements(this.user.sNumber.toString()).subscribe(anns => {
 			this.announcements = anns.map(a => {
 				const data = a.payload.doc.data() as Announcement;
 				data.timestamp = data.timestamp
@@ -42,7 +42,7 @@ export class HomePage {
 		const annModal = this.modalCtrl.create(AnnouncementModalPage)
 		annModal.onDidDismiss(data => {
 			console.log(data)
-			if(data == {}) {
+			if(!data) {
 				return;
 			}
 			data = {

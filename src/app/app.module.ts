@@ -14,8 +14,10 @@ import { LoginPage } from '../pages/login/login';
 import { StudyPage } from '../pages/study/study';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { SchedulePage } from '../pages/schedule/schedule';
+import { AttendancePage } from '../pages/attendance/attendance';
 import { AnnouncementModalPage } from '../pages/announcement-modal/announcement-modal';
 import { ProfileModalPage } from '../pages/profile-modal/profile-modal';
+import { EventModalPage } from '../pages/event-modal/event-modal';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -57,8 +59,10 @@ export const firebaseConfig = {
     StudyPage,
     SignUpPage,
     SchedulePage,
+    AttendancePage,
     AnnouncementModalPage,
-		ProfileModalPage
+		ProfileModalPage,
+    EventModalPage
   ],
   imports: [
     BrowserModule,
@@ -82,7 +86,9 @@ export const firebaseConfig = {
     SignUpPage,
     SchedulePage,
     AnnouncementModalPage,
-		ProfileModalPage
+		ProfileModalPage,
+    AttendancePage,
+    EventModalPage
   ],
   providers: [
     StatusBar,
