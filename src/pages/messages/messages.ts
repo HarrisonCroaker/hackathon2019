@@ -23,6 +23,7 @@ export class MessagesPage {
   groupCollection: Observable<Group[]>;
   dmCollection: Array<Group>;
   user: User;
+  
   constructor(public navCtrl: NavController, private messagesService: MessagesProvider, public userService: UserProvider, public navParams: NavParams) {
   }
 
