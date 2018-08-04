@@ -63,7 +63,7 @@ export const firebaseConfig = {
     SchedulePage,
     AnnouncementModalPage,
     AutomateMessagePage,
-    GroupListPage
+    GroupListPage,
     AttendancePage,
     AnnouncementModalPage,
 		ProfileModalPage,
