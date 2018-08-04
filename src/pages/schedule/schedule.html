@@ -1,18 +1,38 @@
-<!--
-  Generated template for the SchedulePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>schedule</ion-title>
-  </ion-navbar>
-
+		<ion-navbar color="griffith" class="headerClass">
+			<ion-title class="headerText">{{pageTitle}}</ion-title>
+			<ion-buttons end class="btnClass">
+	      <button ion-button icon-only>
+					<ion-icon name="contact"></ion-icon>
+				</button>
+	    </ion-buttons>
+		</ion-navbar>
 </ion-header>
 
+<ion-content no-padding>
 
-<ion-content padding>
+<ion-list class="offsetClass">
+	<ion-card *ngFor="let event of events;" class="event">
+		<ion-item>
+			<ion-avatar slot="start">
+				<img src={{event.imgLink}}/>
+			</ion-avatar>
+			<h6>{{event.title}}</h6>
+		</ion-item>
+		<p>By {{event.creatorName}}</p>
+		<p class="timestamp">{{event.timestamp}}</p>
+		<p style="padding-bottom:10px!important">{{event.eventLocation}}</p>
+		<p style="padding-bottom:10px!important">{{event.eventTime}}</p>
+		<p style="padding-bottom:10px!important">{{event.content}}</p>
+		<!-- <ion-buttons> -->
+			<button color="secondary" class="respondYes" (click)="respondYes()">
+				<ion-icon name="checkmark"></ion-icon>
+			</button>
+			<button color="danger" class="respondNo" (click)="respondNo()">
+				<ion-icon name="close"></ion-icon>
+			</button>
+		<!-- </ion-buttons> -->
+	</ion-card>
+</ion-list>
 
 </ion-content>

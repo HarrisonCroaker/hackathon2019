@@ -14,12 +14,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'study.html',
 })
 export class StudyPage {
+	pageTitle: string = 'Group Finder';
+	currentSegment: string = 'look';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StudyPage');
+  }
+
+	messageChanged(event: any) {
+    this.currentSegment = event.value;
+    console.log('Segment changed', event.value);
   }
 
 }
