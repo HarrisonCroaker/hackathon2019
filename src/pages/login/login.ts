@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SignUpPage } from '../sign-up/sign-up';
+import { TabsPage } from '../tabs/tabs';
 
 // Services
 import { AuthProvider } from '../../providers/auth/auth';
@@ -37,14 +38,14 @@ export class LoginPage {
         if(res){
           this.authService.authInit()
           this.userService.initializeUser(res.user.uid)
-          this.navCtrl.push(SignUpPage);
+          this.navCtrl.push(TabsPage);
         }
       })
     }
   }
 
   gotToSignUp(){
-    this.router.navigate(['/signUp']);
+    this.navCtrl.push(SignUpPage);
   }
 
 }

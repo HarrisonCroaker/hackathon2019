@@ -14,5 +14,24 @@
 
 
 <ion-content padding>
+  <ion-list class="inputList">
 
+    <ion-item>
+      <ion-input class="inputField" type="text" placeholder="Name" [(ngModel)]="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input class="inputField" placeholder="Student Number (No 's')" type="number" [(ngModel)]="sNumber"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input class="inputField" type="text" placeholder="Email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input class="inputField" type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button class="signUpBtn" (click)="signUp()" [disabled]="loading">Finished</button>
 </ion-content>
