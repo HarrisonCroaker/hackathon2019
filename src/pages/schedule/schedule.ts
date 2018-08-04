@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
 import { Event } from '../../models/Event';
 
@@ -8,12 +8,9 @@ import { EventProvider } from '../../providers/event/event';
 import { UserProvider } from '../../providers/user/user';
 
 import { AttendancePage } from '../attendance/attendance';
-/**
- * Generated class for the SchedulePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
+import { EventModalPage } from '../event-modal/event-modal';
+
 
 @IonicPage()
 @Component({
@@ -29,7 +26,8 @@ export class SchedulePage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
 		private dateService: DateProvider,
 		private eventService: EventProvider,
-		private userService: UserProvider) {}
+		private userService: UserProvider,
+    private modalCtrl: ModalController) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SchedulePage');
@@ -59,7 +57,23 @@ export class SchedulePage {
 	}
 
   addMeeting() {
-
+    const evModal = this.modalCtrl.create(EventModalPage)
+		evModal.onDidDismiss(data => {
+			console.log(data);
+			if(!data) {
+				return;
+			}
+			data = {
+				imgLink: "https://i.kym-cdn.com/photos/images/original/001/316/888/f81.jpeg",
+				creatorName: this.user.sNumber.toString(),
+				authorId: this.user.sNumber.toString(),
+				timestamp: (new Date()).getTime(),
+				...data
+			}
+			console.log(data);
+      this.eventService.newEvent(data);
+		})
+		evModal.present()
   }
 
   viewattendance(event) {

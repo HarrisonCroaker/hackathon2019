@@ -42,12 +42,12 @@ export class HomePage {
 		const annModal = this.modalCtrl.create(AnnouncementModalPage)
 		annModal.onDidDismiss(data => {
 			console.log(data)
-			if(data == {}) {
+			if(!data) {
 				return;
 			}
 			data = {
 				imgLink: "https://i.kym-cdn.com/photos/images/original/001/316/888/f81.jpeg",
-				creatorName: this.user.sNumber.toString(),
+				creatorName: this.user.name,
 				creatorId: this.user.sNumber.toString(),
 				timestamp: (new Date()).getTime(),
 				...data

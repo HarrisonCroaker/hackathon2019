@@ -42,4 +42,9 @@ export class EventProvider {
     return this.firestore.collection('Events').doc(eventId).collection('Attendance').valueChanges();
   }
 
+  newEvent(event: any) {
+    console.log("WTF =>" + event)
+    this.firestore.collection('Events').add(event);
+  }
+
 }

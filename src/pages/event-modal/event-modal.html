@@ -1,0 +1,29 @@
+<ion-header>
+	<ion-navbar color="griffith" class="headerClass">
+		<ion-title class="headerText">{{pageTitle}}</ion-title>
+		<ion-buttons start class="btnClass">
+			<button ion-button start icon-only (click)="goBack()">
+				<ion-icon name="arrow-dropleft"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-buttons end class="btnClass2">
+			<button ion-button end icon-only (click)="confirm()">
+				<ion-icon name="checkmark-circle"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+	<form [formGroup]="eventGroup">
+		<h4>Title</h4>
+		<ion-input type="text" [formControl]="eventGroup.controls['title']" placeholder="Title" ></ion-input>
+		<h4>Location</h4>
+		<ion-textarea type="text" [formControl]="eventGroup.controls['eventLocation']" placeholder="Event Location"></ion-textarea>
+    <h4>Time</h4>
+		<ion-textarea type="text" [formControl]="eventGroup.controls['eventTime']" placeholder="Event Time"></ion-textarea>
+    <h4>Details</h4>
+		<ion-textarea type="text" [formControl]="eventGroup.controls['content']" placeholder="Content"></ion-textarea>
+	</form>
+</ion-content>

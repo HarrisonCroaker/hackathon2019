@@ -31,7 +31,7 @@ export class AnnouncementModalPage {
     	}
 
     	goBack(){
-    		this.viewCtrl.dismiss({});
+    		this.viewCtrl.dismiss(null);
     	}
 
     	confirm(){

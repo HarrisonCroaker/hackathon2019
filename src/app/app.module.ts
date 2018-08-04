@@ -17,6 +17,7 @@ import { SchedulePage } from '../pages/schedule/schedule';
 import { AttendancePage } from '../pages/attendance/attendance';
 import { AnnouncementModalPage } from '../pages/announcement-modal/announcement-modal';
 import { ProfileModalPage } from '../pages/profile-modal/profile-modal';
+import { EventModalPage } from '../pages/event-modal/event-modal';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -60,7 +61,8 @@ export const firebaseConfig = {
     SchedulePage,
     AttendancePage,
     AnnouncementModalPage,
-		ProfileModalPage
+		ProfileModalPage,
+    EventModalPage
   ],
   imports: [
     BrowserModule,
@@ -85,7 +87,8 @@ export const firebaseConfig = {
     SchedulePage,
     AnnouncementModalPage,
 		ProfileModalPage,
-    AttendancePage
+    AttendancePage,
+    EventModalPage
   ],
   providers: [
     StatusBar,
