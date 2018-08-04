@@ -2,7 +2,7 @@ export interface Announcement{
 	imgLink: string;
 	id: string;
 	title: string;
-	timestamp: any;
+	timestamp: string;
 	content: string;
 	creatorName: string;
 	important: boolean;

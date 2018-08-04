@@ -36,16 +36,15 @@ export class SchedulePage {
 		this.eventService.getEvents().subscribe(events => {
 			this.events = events.map(a => {
 				const data = a.payload.doc.data() as Event;
-				data.timestamp = this.dateService.toDateTime(data.timestamp)
-				data.eventTime = this.dateService.toDateTime(data.eventTime)
 				const id = a.payload.doc.id;
 				return { id, ...data };
 			})
 		});
+		console.log()
 	}
 
 	respondYes(){
-		
+
 	}
 
 	respondNo(){

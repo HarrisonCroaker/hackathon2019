@@ -30,7 +30,7 @@
 					<h6>{{post.title}}</h6>
 				</ion-item>
 				<p>By {{post.creatorName}}</p>
-				<p class="timestamp">{{post.timestamp}}</p>
+				<p class="timestamp">{{post.timestamp | date:'MMM d, y, h:mm a'}}</p>
 				<p style="padding-bottom:10px!important">{{post.content}}</p>
 				<button ion-button color="griffith" class="respond" (click)="respond()">
 					<ion-icon name="chatbubbles"></ion-icon>

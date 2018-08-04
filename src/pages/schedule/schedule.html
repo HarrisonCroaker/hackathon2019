@@ -20,9 +20,9 @@
 			<h6>{{event.title}}</h6>
 		</ion-item>
 		<p>By {{event.creatorName}}</p>
-		<p class="timestamp">{{event.timestamp}}</p>
+		<p class="timestamp">{{event.timestamp | date:'MMM d, y, h:mm a'}}</p>
 		<p style="padding-bottom:10px!important">{{event.eventLocation}}</p>
-		<p style="padding-bottom:10px!important">{{event.eventTime}}</p>
+		<p style="padding-bottom:10px!important">{{event.eventTime | date:'MMM d, y, h:mm a'}}</p>
 		<p style="padding-bottom:10px!important">{{event.content}}</p>
 		<!-- <ion-buttons> -->
 			<button color="secondary" class="respondYes" (click)="respondYes()">
