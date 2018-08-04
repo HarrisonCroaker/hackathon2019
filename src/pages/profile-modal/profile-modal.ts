@@ -14,8 +14,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'profile-modal.html',
 })
 export class ProfileModalPage {
+	pageTitle: string = 'Profile';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+		private formBuilder: FormBuilder) {
   }
 
   ionViewDidLoad() {
