@@ -1,6 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+// Firebase
+import * as firebase from 'firebase/app';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+
 /*
   Generated class for the UserProvider provider.
 
@@ -10,8 +15,13 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UserProvider {
 
-  constructor(public http: HttpClient) {
+  private userDataDoc: AngularFirestoreDocument<User>;
+  private userData: User = null;
+  private userObservable: Observable<any>;
+
+  constructor(public http: HttpClient,private afAuth: AngularFireAuth, private router: Router,private afs: AngularFirestore) {
     console.log('Hello UserProvider Provider');
+
   }
 
 }
