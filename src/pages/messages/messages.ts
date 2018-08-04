@@ -4,8 +4,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MessagesProvider } from '../../providers/messages/messages';
 import { User } from '../../models/User'
 import { Group } from '../../models/Group';
-
 import { Observable } from 'rxjs';
+
+import { ChatPage } from '../chat/chat';
 
 @IonicPage()
 @Component({
@@ -20,7 +21,7 @@ export class MessagesPage {
   groupCollection: Observable<Group[]>;
   dmCollection: Array<Group>;
 
-  constructor(private messagesService: MessagesProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, private messagesService: MessagesProvider, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -43,6 +44,10 @@ export class MessagesPage {
   messageChanged(event: any) {
     this.currentSegment = event.value;
     console.log('Segment changed = > ', event.value);
+  }
+
+  messageClick(messageObject: any) {
+    this.navCtrl.push(ChatPage, messageObject);
   }
 
 }

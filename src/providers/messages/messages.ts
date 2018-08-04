@@ -25,6 +25,7 @@ export class MessagesProvider {
 
   sendMessage(groupId: string, message: Message) {
     this.firestore.collection('Groups').doc(groupId).collection('Messages').add(message);
+    console.log("Sent");
   }
 
 }
