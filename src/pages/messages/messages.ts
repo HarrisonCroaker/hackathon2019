@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { UserProvider } from '../../providers/user/user';
 import { MessagesProvider } from '../../providers/messages/messages';
 import { User } from '../../models/User'
 import { Group } from '../../models/Group';
 import { Observable } from 'rxjs';
 
 import { ChatPage } from '../chat/chat';
+
 
 @IonicPage()
 @Component({
@@ -20,19 +22,20 @@ export class MessagesPage {
   currentSegment: String = "group";
   groupCollection: Observable<Group[]>;
   dmCollection: Array<Group>;
-
-  constructor(public navCtrl: NavController, private messagesService: MessagesProvider, public navParams: NavParams) {
+  user: User;
+  constructor(public navCtrl: NavController, private messagesService: MessagesProvider, public userService: UserProvider, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    this.messagesService.getGroups('5084150').subscribe(groups => {
+    this.user = this.userService.getCurreUserData();
+    this.messagesService.getGroups(this.user.sNumber.toString()).subscribe(groups => {
       this.groupCollection = groups.map(a => {
           const data = a.payload.doc.data() as Group;
           const id = a.payload.doc.id;
           return { id, ...data };
         });
     });
-    this.messagesService.getDirectMessages('5084150').subscribe(groups => {
+    this.messagesService.getDirectMessages(this.user.sNumber.toString()).subscribe(groups => {
       this.dmCollection = groups.map(a => {
           const data = a.payload.doc.data() as Group;
           const id = a.payload.doc.id;
@@ -40,7 +43,7 @@ export class MessagesPage {
         });
     });
   }
-	
+
 	messageChanged(event: any) {
     this.currentSegment = event.value;
     console.log('Segment changed', event.value);

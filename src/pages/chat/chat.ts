@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Message } from "../../models/Message";
 import { MessagesProvider } from '../../providers/messages/messages';
+import { UserProvider } from '../../providers/user/user';
 
 @IonicPage()
 @Component({
@@ -14,7 +15,7 @@ export class ChatPage {
   messages: Message[];
   inputMessage: string;
 
-  constructor(public navCtrl: NavController, private messagesService: MessagesProvider, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public userService: UserProvider, private messagesService: MessagesProvider, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -31,7 +32,7 @@ export class ChatPage {
       timestamp: (new Date).getTime().toString(),
       type: "general",
       message: this.inputMessage,
-      user: {'name': "Carl Humphries", 'sNumber': 5084150, 'email': "adkjsghadsk", 'id': "ksjdghkjdsh"}
+      user: this.userService.getCurreUserData()
     };
     this.messagesService.sendMessage(this.id, message);
   }

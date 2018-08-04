@@ -10,13 +10,13 @@
       {{ message.message }}
     </ion-item>
   </ion-list>
-  <ion-footer>
-    <ion-toolbar>
-      <ion-input type="text" placeholder="Type a message" [(ngModel)]="inputMessage" name="message"></ion-input>
-      <button (click)="sendMessage()" ion-button icon-end block>
-          Send
-          <ion-icon name="arrow"></ion-icon>
-      </button>
-    </ion-toolbar>
-  </ion-footer>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-input type="text" placeholder="Type a message" [(ngModel)]="inputMessage" name="message"></ion-input>
+    <button (click)="sendMessage()" ion-button icon-end block>
+        Send
+        <ion-icon name="arrow"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-footer>
