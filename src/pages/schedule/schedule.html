@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content no-padding>
-<button color="danger" (click)="addMeeting()">Add Meetup</button>
+<button color="danger" *ngIf="user.type == 'mentor'" (click)="addMeeting()">Add Meetup</button>
 <ion-list class="offsetClass">
 	<ion-card *ngFor="let event of events;" class="event">
 		<ion-item>
