@@ -1,18 +1,33 @@
-<!--
-  Generated template for the MessagesPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>messages</ion-title>
-  </ion-navbar>
-
+		<ion-navbar color="griffith" class="headerClass">
+			<ion-title class="headerText">{{pageTitle}}</ion-title>
+			<ion-buttons end class="btnClass">
+	      <button ion-button icon-only>
+					<ion-icon name="contact"></ion-icon>
+				</button>
+	    </ion-buttons>
+		</ion-navbar>
 </ion-header>
 
+<ion-content no-padding>
+  <ion-segment [(ngModel)]="currentSegment" (ionChange)="messageChanged($event)" color="griffith" class="segment">
+    <ion-segment-button value="group" checked>
+      Groups
+    </ion-segment-button>
+    <ion-segment-button value="dm">
+      Direct Messages
+    </ion-segment-button>
+  </ion-segment>
 
-<ion-content padding>
+  <ion-list *ngIf="currentSegment == 'group'">
+    <ion-item *ngFor="let group of groupCollection" class="messageBox">
+      <ion-label>{{ group.name }}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="currentSegment == 'dm'">
+    <ion-item *ngFor="let dm of dmCollection" class="messageBox">
+      <ion-label>{{ dm.name }}</ion-label>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

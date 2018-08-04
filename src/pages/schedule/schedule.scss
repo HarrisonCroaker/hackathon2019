@@ -1,3 +1,74 @@
 page-schedule {
+	h6 {
+    padding-bottom: 0px;
+	}
+	p {
+		margin: 5px;
+		padding: 5px;
+		padding-bottom: 0px;
+		color: black;
+	}
+
+	.headerClass{
+		padding-top: 2vh;
+		padding-bottom: 2vh;
+		text-align: center;
+		.headerText{
+			color: white;
+			text-align: center;
+			font-size: 25px;
+			font-family: 'Open Sans', sans-serif;
+		}
+	}
+
+	.event {
+		margin-top: 0vh;
+		padding-left: 5px;
+		padding-top: 0vh;
+		margin-bottom: 2vh;
+	}
+
+	.offsetClass{
+		padding-top: 2vh;
+		margin-top: 2vh;
+	}
+
+	.timestamp {
+		margin: 0px;
+		padding: 10px;
+		padding-top: 0px;
+		color: gray;
+		font-size: 100%;
+	}
+
+	.btnClass{
+		margin-right: 2vw;
+	}
+
+	.respondYes{
+		width: 41vw;
+		height: 30px;
+		color: white;
+		background-color: #32db64;
+		border-radius: 6px;
+		margin-left: 1vw;
+		margin-right: 1vw;
+		margin-bottom: 1vh;
+		font-size: 25px;
+		text-align: center;
+	}
+
+	.respondNo{
+		width: 41vw;
+		height: 30px;
+		color: white;
+		background-color: #f53d3d;
+		border-radius: 6px;
+		margin-left: 1vw;
+		margin-right: 1vw;
+		margin-bottom: 1vh;
+		font-size: 25px;
+		text-align: center;
+	}
 
 }
