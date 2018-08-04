@@ -25,7 +25,6 @@ import { AnnouncementsProvider } from '../providers/announcements/announcements'
 import { DateProvider } from '../providers/date/date';
 import { PostsProvider } from '../providers/posts/posts';
 import { UserProvider } from '../providers/user/user';
-import { ScheduleProvider } from '../providers/schedule/schedule';
 import { EventProvider } from '../providers/event/event';
 
 // Firebase
@@ -87,7 +86,6 @@ export const firebaseConfig = {
     DateProvider,
     PostsProvider,
     UserProvider,
-    ScheduleProvider,
     EventProvider
   ]
 })
