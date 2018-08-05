@@ -22,7 +22,7 @@ export class MyApp {
 
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public authService: AuthProvider, public userService: UserProvider) {
-
+    splashScreen.show();
     this.authService.authInit().takeUntil(this.unSub).subscribe(auth=>{
 
       if(auth){

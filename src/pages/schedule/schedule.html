@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content no-padding>
-<button color="danger" *ngIf="user?.type == 'mentor'" (click)="addMeeting()">Add Meetup</button>
+<button color="dark" *ngIf="user?.type == 'mentor'" (click)="addMeeting()" ion-button full>Add Meetup</button>
 <ion-list class="offsetClass">
 	<ion-card *ngFor="let event of events;" class="event">
 		<ion-item>
@@ -26,15 +26,15 @@
 		<p style="padding-bottom:10px!important">{{event.content}}</p>
 		<!-- <ion-buttons> -->
 		<div class="menteeview">
-			<button color="secondary" class="respondYes" (click)="respondYes(event)">
+			<button color="light" class="respondYes" (click)="respondYes(event)">
 				<ion-icon name="checkmark"></ion-icon>
 			</button>
 			<button color="danger" class="respondNo" (click)="respondNo(event)">
 				<ion-icon name="close"></ion-icon>
 			</button>
 		</div>
-		<div class="mentorview">
-			<button color="secondary" class="mentorView" (click)="viewattendance(event)">
+		<div>
+			<button color="dark" class="mentorView"  (click)="viewattendance(event)" ion-button round>
 				View attendance
 			</button>
 		</div>
