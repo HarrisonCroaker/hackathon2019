@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { NavController } from 'ionic-angular';
+import { NativeAudio } from '@ionic-native/native-audio';
 
 // Pages
 import { HomePage } from '../pages/home/home';
@@ -100,6 +101,7 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
+    NativeAudio,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MessagesProvider,
     AuthProvider,
