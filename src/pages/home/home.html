@@ -2,8 +2,8 @@
 	<ion-navbar color="griffith" class="headerClass">
 		<ion-title class="headerText">{{pageTitle}}</ion-title>
 		<ion-buttons end class="btnClass">
-			<button ion-button *ngIf="1 == 1" icon-only (click)="addAnnouncement()">
-				<ion-icon name="add-circle-outline"></ion-icon>
+			<button ion-button *ngIf="user?.type == 'mentor'" icon-only (click)="addAnnouncement()">
+				<ion-icon name="add-circle"></ion-icon>
 			</button>
 			<button ion-button icon-only>
 				<ion-icon name="contact"></ion-icon>
@@ -22,7 +22,7 @@
 				<h6>{{ann.title}}</h6>
 			</ion-item>
 			<p>By {{ann.creatorName}}</p>
-			<p class="timestamp">{{ann.timestamp}}</p>
+			<p class="timestamp">{{ann.timestamp | date:'MMM d, y, h:mm a'}}</p>
 			<p style="padding-bottom:10px!important">{{ann.content}}</p>
 		</ion-card>
 	</ion-list>

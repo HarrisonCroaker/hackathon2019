@@ -14,6 +14,12 @@ import { LoginPage } from '../pages/login/login';
 import { StudyPage } from '../pages/study/study';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { SchedulePage } from '../pages/schedule/schedule';
+import { AttendancePage } from '../pages/attendance/attendance';
+import { AnnouncementModalPage } from '../pages/announcement-modal/announcement-modal';
+import { AutomateMessagePage } from '../pages/automate-message/automate-message';
+import { GroupListPage } from '../pages/group-list/group-list';
+import { ProfileModalPage } from '../pages/profile-modal/profile-modal';
+import { EventModalPage } from '../pages/event-modal/event-modal';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -25,7 +31,6 @@ import { AnnouncementsProvider } from '../providers/announcements/announcements'
 import { DateProvider } from '../providers/date/date';
 import { PostsProvider } from '../providers/posts/posts';
 import { UserProvider } from '../providers/user/user';
-import { ScheduleProvider } from '../providers/schedule/schedule';
 import { EventProvider } from '../providers/event/event';
 
 // Firebase
@@ -33,6 +38,10 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+
+import { ReactiveFormsModule} from '@angular/forms';
+import { Camera } from '@ionic-native/camera';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC9x_GJ3kJG2Kp-Fo3rlnK0gcQZLN2DzQI",
@@ -42,6 +51,7 @@ export const firebaseConfig = {
   storageBucket: "hackathon2018-ba671.appspot.com",
   messagingSenderId: "1022766297163"
 }
+
 
 @NgModule({
   declarations: [
@@ -53,7 +63,14 @@ export const firebaseConfig = {
     LoginPage,
     StudyPage,
     SignUpPage,
-    SchedulePage
+    SchedulePage,
+    AnnouncementModalPage,
+    AutomateMessagePage,
+    GroupListPage,
+    AttendancePage,
+    AnnouncementModalPage,
+		ProfileModalPage,
+    EventModalPage
   ],
   imports: [
     BrowserModule,
@@ -62,8 +79,9 @@ export const firebaseConfig = {
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    HttpClientModule
-
+    HttpClientModule,
+    ReactiveFormsModule,
+    AngularFireStorageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -75,7 +93,13 @@ export const firebaseConfig = {
     LoginPage,
     StudyPage,
     SignUpPage,
-    SchedulePage
+    SchedulePage,
+    AnnouncementModalPage,
+    AutomateMessagePage,
+    GroupListPage,
+		ProfileModalPage,
+    AttendancePage,
+    EventModalPage
   ],
   providers: [
     StatusBar,
@@ -87,8 +111,8 @@ export const firebaseConfig = {
     DateProvider,
     PostsProvider,
     UserProvider,
-    ScheduleProvider,
-    EventProvider
+    EventProvider,
+    Camera
   ]
 })
 export class AppModule {}

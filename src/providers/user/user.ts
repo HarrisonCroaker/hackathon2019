@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { AngularFireStorage } from 'angularfire2/storage';
 import { User } from '../../models/User';
 
 /*
@@ -21,10 +22,12 @@ export class UserProvider {
   private userData: User = null;
   private userObservable: Observable<any>;
 
-  constructor(public http: HttpClient,private afAuth: AngularFireAuth, private afs: AngularFirestore) {
-    console.log('Hello UserProvider Provider');
-    afs.firestore.settings({ timestampsInSnapshots: true });
-  }
+	constructor(public http: HttpClient,
+	  		private afAuth: AngularFireAuth,
+			private afs: AngularFirestore,
+			private storage: AngularFireStorage) {
+    		afs.firestore.settings({ timestampsInSnapshots: true });
+  	}
 
   initializeUser(uid:string){
     this.afs.doc(`Users/${uid}`).valueChanges().subscribe((userData:User)=>{
@@ -48,6 +51,10 @@ export class UserProvider {
 
   clearUser(){
     this.userData = null;
+  }
+
+  uploadImg(filePath, file){
+	  return this.storage.upload(filePath,file)
   }
 
   retrieveUser(uid: string){

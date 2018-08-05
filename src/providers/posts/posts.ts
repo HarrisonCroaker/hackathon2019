@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 /*
   Generated class for the PostsProvider provider.
 
@@ -18,5 +18,9 @@ export class PostsProvider {
 	getPosts(){
 		return this.firestore.collection('Posts', ref => ref.orderBy('timestamp', 'desc')).snapshotChanges();
   }
+
+	insertPost(newPost: any){
+		this.firestore.collection('Posts').add(newPost)
+	}
 
 }

@@ -23,6 +23,7 @@ import { User } from '../../models/User';
   templateUrl: 'sign-up.html',
 })
 export class SignUpPage {
+	pageTitle = 'Sign Up';
 
   newUser:User;
   name:string;
@@ -67,6 +68,7 @@ export class SignUpPage {
                   this.unSub2.next();
                   this.unSub2.complete();
                 })
+                
               }).catch(err=>{
                 this.loading = false;
                 console.log(err)
