@@ -33,34 +33,33 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
 
-      this.nativeAudio.preloadSimple('bing', '../assets/bing.mp3').then(()=>{
-        this.authService.authInit().takeUntil(this.unSub).subscribe(auth=>{
+      this.nativeAudio.preloadSimple('bing', './assets/bing.mp3')
+      this.authService.authInit().takeUntil(this.unSub).subscribe(auth=>{
 
-          if(auth){
-            this.userService.initializeUser(auth.uid).takeUntil(this.unSub2).subscribe(user=>{
-              this.messagesService.getMessages('YQNee4tTfc3JrO7R4g4X').subscribe(messages => {
-                if(this.activated && messages[messages.length-1].user.id != auth.uid){
-                  this.nativeAudio.play('bing');
-                  this.presentToast(messages[messages.length-1]);
-                  this.nativeAudio.stop('bing');
-                }
-                else{
-                  this.activated=true;
-                }
+        if(auth){
+          this.userService.initializeUser(auth.uid).takeUntil(this.unSub2).subscribe(user=>{
+            this.messagesService.getMessages('YQNee4tTfc3JrO7R4g4X').subscribe(messages => {
+              if(this.activated && messages[messages.length-1].user.id != auth.uid){
+                this.nativeAudio.play('bing');
+                this.presentToast(messages[messages.length-1]);
+                this.nativeAudio.stop('bing');
+              }
+              else{
+                this.activated=true;
+              }
 
-              });
-              this.rootPage = TabsPage
-              this.unSub2.next();
-              this.unSub2.complete();
-            })
-          }
-          else{
-            this.rootPage = LoginPage
-            this.unSub.next()
-            this.unSub.complete()
-          }
-        })
-      });
+            });
+            this.rootPage = TabsPage
+            this.unSub2.next();
+            this.unSub2.complete();
+          })
+        }
+        else{
+          this.rootPage = LoginPage
+          this.unSub.next()
+          this.unSub.complete()
+        }
+      })
     });
   }
 

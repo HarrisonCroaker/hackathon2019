@@ -65,7 +65,7 @@ export class StudyPage {
 		console.log(this.user)
 		if(this.postGroup.value.title && this.postGroup.value.content){
 			let data = {
-					imgLink: "https://i.kym-cdn.com/photos/images/original/001/316/888/f81.jpeg",
+					imgLink: "https://app.secure.griffith.edu.au/griffithpay/default_image.gif",
 					creatorName: this.user.name,
 					id: this.user.sNumber.toString(),
 					timestamp: Math.round((new Date()).getTime()/1000),
