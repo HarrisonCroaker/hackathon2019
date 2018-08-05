@@ -10,8 +10,6 @@ import { DateProvider } from '../../providers/date/date';
 import { PostsProvider } from '../../providers/posts/posts';
 import { UserProvider } from '../../providers/user/user';
 
-import { User } from '../../models/User';
-
 import { ProfileModalPage } from '../profile-modal/profile-modal';
 
 @IonicPage()
