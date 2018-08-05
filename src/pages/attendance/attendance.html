@@ -17,6 +17,9 @@
   <ion-grid>
     <ion-row *ngFor="let attendee of attendance" class="attendance">
       <ion-col>
+        {{attendee.name}}
+      </ion-col>
+      <ion-col>
         {{attendee.id}}
       </ion-col>
       <ion-col>

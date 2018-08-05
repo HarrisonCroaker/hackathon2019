@@ -23,17 +23,17 @@ export class EventProvider {
 		return this.firestore.collection('Events', ref => ref.where(`authorId`, '==', this.mentor)).snapshotChanges();
   }
 
-  postEvent(eventId:string, sNumber:string, resp:boolean) {
+  postEvent(eventId:string, sNumber:string, resp:boolean, name:string) {
     this.firestore.collection('Events').doc(eventId).collection('Attendance', ref => ref.where(`id`, '==', sNumber)).snapshotChanges().first()
       .subscribe(data => {
         console.log(data);
         if (data.length) {
           console.log(data[0].payload.doc.data().response + "  " + resp); //.update({'response': resp});
           if (data[0].payload.doc.data().response != resp) {
-            this.firestore.collection('Events').doc(eventId).collection('Attendance').doc(data[0].payload.doc.id).set({'id': sNumber, 'response': resp});
+            this.firestore.collection('Events').doc(eventId).collection('Attendance').doc(data[0].payload.doc.id).set({'name': name, 'id': sNumber, 'response': resp});
           }
         } else {
-          this.firestore.collection('Events').doc(eventId).collection('Attendance').add({'id': sNumber, 'response': resp});
+          this.firestore.collection('Events').doc(eventId).collection('Attendance').add({'name': name, 'id': sNumber, 'response': resp});
         }
       });
   }
