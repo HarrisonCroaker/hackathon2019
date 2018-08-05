@@ -94,4 +94,16 @@ page-chat {
       font-size: 25px;
     }
   }
+
+	.headerClass{
+		padding-top: 2vh;
+		padding-bottom: 2vh;
+		text-align: center;
+		.headerText{
+			color: white;
+			text-align: center;
+			font-size: 25px;
+			font-family: 'Open Sans', sans-serif;
+		}
+	}
 }

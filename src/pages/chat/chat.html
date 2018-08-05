@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="griffith" class="headerClass">
     <ion-title *ngIf="group" (click)="openGroup()">{{group.name}}</ion-title>
     <ion-buttons end *ngIf="currentUser?.type == 'mentor'">
       <button ion-button icon-only (click)="openAutoModal()">
