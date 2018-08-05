@@ -37,8 +37,14 @@ export class LoginPage {
 
             if(auth){
               this.userService.initializeUser(auth.uid).takeUntil(this.unSub2).subscribe(user=>{
+
+                this.navCtrl.setRoot(TabsPage);
+
                 this.unSub2.next();
                 this.unSub2.complete();
+
+                this.unSub.next()
+                this.unSub.complete()
               })
             }
             else{
@@ -46,7 +52,6 @@ export class LoginPage {
               this.unSub.complete()
             }
           })
-          this.navCtrl.push(TabsPage);
         }
       })
     }

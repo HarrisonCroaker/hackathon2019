@@ -43,7 +43,11 @@
 			<h4>Title</h4>
 			<ion-input type="text" [formControl]="postGroup.controls['title']" placeholder="Post Title" ></ion-input>
 			<h4>Description</h4>
-			<ion-textarea type="text" [formControl]="postGroup.controls['content']" placeholder="Post Description"></ion-textarea>
+			<ion-textarea style="height:15vh;" type="text" [formControl]="postGroup.controls['content']" placeholder="Post Description"></ion-textarea>
+			<!-- <ion-item style="padding-left: 0; margin-bottom:2vh" no-lines>
+			  <ion-label>Important</ion-label>
+			  <ion-toggle color="danger" checked="false" [formControl]="postGroup.controls['important']"></ion-toggle>
+			</ion-item> -->
 		</form>
 		<button ion-button color="secondary" class="submitBtn" (click)="addPost()">
 			<ion-icon name="checkmark"></ion-icon>

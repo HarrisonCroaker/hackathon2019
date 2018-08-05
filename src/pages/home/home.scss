@@ -15,7 +15,6 @@ page-home {
 		display: inline;
 		color: #aeaeae;
 	}
-
 	.announcement {
 		margin-top: 0vh;
 		padding-left: 5px;
@@ -64,6 +63,22 @@ page-home {
 
 	.timestamp{
 		text-align: right;
+		color: #aeaeae;
+	}
+
+	.important{
+		 background:color($colors, griffith, base);
+		 ion-item{
+			 background: color($colors, griffith, base);
+		 }
+		 h6,.description{
+			 color: #eaeaea;
+		 }
+		 p{
+			 color:#dbdbdb
+		 }
+	}
+	.general{
 		color: #aeaeae;
 	}
 }

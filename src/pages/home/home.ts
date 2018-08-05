@@ -19,6 +19,7 @@ export class HomePage {
 	announcements: Announcement[]
 	pageTitle: string = 'Announcements';
 	user: User;
+
 	constructor(private navCtrl: NavController,
 			private modalCtrl: ModalController,
 			private dateService: DateProvider,
@@ -31,7 +32,6 @@ export class HomePage {
 		this.announceService.getAnnouncements(this.user.sNumber.toString()).subscribe(anns => {
 			this.announcements = anns.map(a => {
 				const data = a.payload.doc.data() as Announcement;
-				data.timestamp = data.timestamp
 				const id = a.payload.doc.id;
 				return { id, ...data };
 			})

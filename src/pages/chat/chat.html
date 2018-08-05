@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title *ngIf="group" (click)="openGroup()">{{group.name}}</ion-title>
-    <ion-buttons end>
+    <ion-buttons end *ngIf="currentUser?.type == 'mentor'">
       <button ion-button icon-only (click)="openAutoModal()">
         <ion-icon name="open"></ion-icon>
       </button>
