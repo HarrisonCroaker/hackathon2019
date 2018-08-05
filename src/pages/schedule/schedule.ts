@@ -47,12 +47,12 @@ export class SchedulePage {
 
 	respondYes(event){
     console.log(event.id + this.user.sNumber.toString() + true);
-    this.eventService.postEvent(event.id, this.user.sNumber.toString(), true);
+    this.eventService.postEvent(event.id, this.user.sNumber.toString(), true, this.user.name);
 	}
 
 	respondNo(event){
     console.log(event.id + this.user.sNumber.toString() + true);
-    this.eventService.postEvent(event.id, this.user.sNumber.toString(), false);
+    this.eventService.postEvent(event.id, this.user.sNumber.toString(), false, this.user.name);
 	}
 
   addMeeting() {
