@@ -11,7 +11,7 @@
 
 <ion-content padding>
 	<ion-avatar (click)="addPhoto()">
-		<img src={{user.imgLink || "http://www.omnieffect.com/wp-content/uploads/2018/02/griffith-logo.jpg"}}/>
+		<img src={{(user.imgLink || "http://www.omnieffect.com/wp-content/uploads/2018/02/griffith-logo.jpg")}}/>
 	</ion-avatar>
 	<ion-label>{{user.name}}</ion-label>
 	<ion-label style="color:gray">{{user.sNumber}}</ion-label>

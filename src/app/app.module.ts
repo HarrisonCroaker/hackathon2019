@@ -43,6 +43,8 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { ReactiveFormsModule} from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
 
+import { ReactiveFormsModule} from '@angular/forms';
+
 export const firebaseConfig = {
   apiKey: "AIzaSyC9x_GJ3kJG2Kp-Fo3rlnK0gcQZLN2DzQI",
   authDomain: "hackathon2018-ba671.firebaseapp.com",

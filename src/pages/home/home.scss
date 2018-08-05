@@ -1,12 +1,19 @@
 page-home {
 	h6 {
+		text-decoration: underline;
+		text-decoration-style: solid;
 		padding-bottom: 0px;
+		font-size: 1.7rem !important;
+		display: inline;
 	}
-	p {
+
+	.author {
 		margin: 5px;
 		padding: 5px;
 		padding-bottom: 0px;
 		color: black;
+		display: inline;
+		color: #aeaeae;
 	}
 	.announcement {
 		margin-top: 0vh;
@@ -41,5 +48,37 @@ page-home {
 
 	.btnClass{
 		margin-right: 2vw;
+	}
+
+	img{
+		object-fit: cover;
+	}
+
+	.description{
+		padding-left: 15px;
+		padding-right: 6px;
+		padding-top:6px;
+		padding-bottom:8px;
+	}
+
+	.timestamp{
+		text-align: right;
+		color: #aeaeae;
+	}
+
+	.important{
+		 background:color($colors, griffith, base);
+		 ion-item{
+			 background: color($colors, griffith, base);
+		 }
+		 h6,.description{
+			 color: #eaeaea;
+		 }
+		 p{
+			 color:#dbdbdb
+		 }
+	}
+	.general{
+		color: #aeaeae;
 	}
 }
