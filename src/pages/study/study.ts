@@ -68,7 +68,7 @@ export class StudyPage {
 					imgLink: "https://app.secure.griffith.edu.au/griffithpay/default_image.gif",
 					creatorName: this.user.name,
 					id: this.user.sNumber.toString(),
-					timestamp: Math.round((new Date()).getTime()/1000),
+					timestamp: (new Date).getTime().toString(),
 					...this.postGroup.value
 				}
 				console.log(data.timestamp);

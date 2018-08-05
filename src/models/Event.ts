@@ -3,7 +3,7 @@ export interface Event{
 	imgLink: string;
 	title: string;
 	timestamp: string;
-	eventTime: any;
+	eventTime: string;
 	eventLocation: string;
 	content: string;
 	creatorName: string;
