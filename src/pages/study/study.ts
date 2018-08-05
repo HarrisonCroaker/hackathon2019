@@ -52,7 +52,7 @@ export class StudyPage {
 	}
 
 	respond(){
-
+		console.log("Responding to post!")
 	}
 
 	messageChanged(event: any) {
