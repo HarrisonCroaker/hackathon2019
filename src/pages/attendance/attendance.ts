@@ -16,6 +16,8 @@ import { EventProvider } from '../../providers/event/event';
   templateUrl: 'attendance.html',
 })
 export class AttendancePage {
+
+	pageTitle: string = 'Attendees';
   event: any;
   attendance: any;
   constructor(private eventService: EventProvider, public navCtrl: NavController, public navParams: NavParams) {

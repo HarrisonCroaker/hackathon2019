@@ -62,14 +62,6 @@ export class MyApp {
         })
       });
     });
-
-
-
-
-
-
-
-
   }
 
   presentToast(message) {

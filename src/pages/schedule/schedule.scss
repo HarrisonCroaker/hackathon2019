@@ -25,12 +25,25 @@ page-schedule {
 		margin-top: 0vh;
 		padding-left: 5px;
 		padding-top: 0vh;
-		margin-bottom: 2vh;
+		margin-bottom: 3vh;
 	}
 
 	.offsetClass{
 		padding-top: 2vh;
 		// margin-top: 2vh;
+	}
+
+	.mentorView {
+		margin-left: 1vw;
+		margin-bottom: 1.5vh;
+  	left: 0;
+  	right: 0;
+  	width: 89vw;
+    height: 30px;
+    color: white;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
 	}
 
 	.timestamp {
@@ -49,7 +62,7 @@ page-schedule {
 		width: 43vw;
 		height: 30px;
 		color: white;
-		background-color: #32db64;
+		background-color: #747d8c;
 		border-radius: 6px;
 		margin-left: 1vw;
 		margin-right: 1vw;

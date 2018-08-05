@@ -1,3 +1,17 @@
 page-attendance {
+	.headerClass{
+		padding-top: 2vh;
+		padding-bottom: 2vh;
+		text-align: center;
+		.headerText{
+			color: white;
+			text-align: center;
+			font-size: 25px;
+			font-family: 'Open Sans', sans-serif;
+		}
+	}
 
+	.attendance{
+		border-bottom: 1px solid black;;
+	}
 }
