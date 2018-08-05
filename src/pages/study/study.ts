@@ -68,7 +68,7 @@ export class StudyPage {
 					imgLink: "https://i.kym-cdn.com/photos/images/original/001/316/888/f81.jpeg",
 					creatorName: this.user.name,
 					id: this.user.sNumber.toString(),
-					timestamp: Math.round((new Date()).getTime()/1000),
+					timestamp: (new Date).getTime().toString(),
 					...this.postGroup.value
 				}
 				console.log(data.timestamp);

@@ -42,7 +42,7 @@ export class SchedulePage {
 				return { id, ...data };
 			})
 		});
-		console.log()
+
 	}
 
 	respondYes(event){
@@ -66,7 +66,7 @@ export class SchedulePage {
 				imgLink: "https://i.kym-cdn.com/photos/images/original/001/316/888/f81.jpeg",
 				creatorName: this.user.sNumber.toString(),
 				authorId: this.user.sNumber.toString(),
-				timestamp: Math.round((new Date()).getTime()/1000),
+				timestamp: (new Date).getTime().toString(),
 				...data
 			}
 			console.log(data);

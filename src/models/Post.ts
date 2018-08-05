@@ -2,7 +2,7 @@ export interface Post{
 	id: string;
 	imgLink: string;
 	title: string;
-	timestamp: any;
+	timestamp: string;
 	content: string;
 	creatorName: string;
 	important: boolean;
